@@ -1,0 +1,2 @@
+rosbridge: /ros_entrypoint.sh ros2 launch rosbridge_server rosbridge_websocket_launch.xml port:=80 use_compression:=True call_services_in_new_thread:=True
+sshd: /usr/sbin/sshd -D

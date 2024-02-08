@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="husarion_ros" type="wifi.py" name="wifi_publisher" output="screen">
+    </node>
+</launch> 

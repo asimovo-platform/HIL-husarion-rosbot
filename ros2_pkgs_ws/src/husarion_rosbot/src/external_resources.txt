@@ -1,0 +1,5 @@
+The solution for the package_files function in setup.py is by joseecm (https://answers.ros.org/users/44853/joseecm/) available at https://answers.ros.org/question/397319/how-to-copy-folders-with-subfolders-to-package-installation-path/?answer=397410#post-id-397410
+
+The file rosbot.urdf was created based on the files available at https://github.com/husarion/rosbot_description. These have an MIT licence (https://opensource.org/license/mit/). These files have been combined and modified to work with ROS2 Foxy and Gazebo Fortress.
+
+

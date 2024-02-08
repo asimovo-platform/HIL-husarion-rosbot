@@ -1,0 +1,22 @@
+<launch>
+    <arg name="rosbot_pro" default="false"/>
+    <arg name="mecanum" default="false"/>  
+<param name="/use_sim_time" value="true"/>
+<include unless="$(arg rosbot_pro)" file="$(find rosbot_ekf)/launch/rosserial_bridge.launch"/>
+    
+    <include if="$(arg rosbot_pro)" file="$(find rosbot_ekf)/launch/rosserial_bridge.launch">
+        <arg name="serial_port" value="/dev/ttyS0"/>
+    </include>
+    
+    <node if="$(arg mecanum)" pkg="rosservice" type="rosservice" name="set_kinematics" args="call --wait /config 'SKIN' 'MEC'"/>
+
+    <include file="$(find rosbot_ekf)/launch/message_conversion.launch"/>
+
+    <include file="$(find rosbot_ekf)/launch/rosbot_ekf.launch"/>
+
+<!--<node pkg="tf" type="static_transform_publisher" name="imu_publisher" args="0 0 0.02 0 0 0 base_link imu_link 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="laser_publisher" args="0 0 0.02 0 0 0 laser husarion_rosbot/base_link/laser 100" />
+-->
+</launch>
+
